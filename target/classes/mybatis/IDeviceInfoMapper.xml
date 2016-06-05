@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpserver.GPServer.dao.IDeviceInfoDao">
+	<cache eviction="FIFO" flushInterval="60000" size="500" readOnly="true"></cache>
+
+	<select id="selectAllDeviceInfo" resultType="deviceInfo">
+		SELECT * FROM deviceinfo;
+	</select>
+	
+	<update id="updateDeviceInfo" parameterType="deviceInfo">
+		UPDATE deviceinfo set devicename = #{deviceName},devicestatus = #{deviceStatus},type = #{type} where deviceid = #{deviceId};
+	</update>
+	
+	<delete id = "deleteDeviceInfo" parameterType="deviceInfo">
+		DELETE FROM deviceinfo WHERE deviceid = #{deviceId};
+	</delete>
+</mapper>

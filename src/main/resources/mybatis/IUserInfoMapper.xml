@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpserver.GPServer.dao.IUserInfoDao">
+	<cache eviction="FIFO" flushInterval="60000" size="500" readOnly="true"></cache>
+	<select id="selectByUserName" parameterType="string" resultType="UserInfo" useCache="false">
+		select * from userinfo where username=#{userName}
+	</select>
+	<insert id="userRegister" parameterType="UserInfo" >
+		INSERT INTO userinfo 
+		(username,password,authority)
+		VALUES(#{userName},#{password},#{authority});
+	</insert>
+	<select id="doLogin" parameterType="string" resultType="UserInfo" >
+		select * from userinfo where username=#{userName}
+	</select>
+</mapper>
