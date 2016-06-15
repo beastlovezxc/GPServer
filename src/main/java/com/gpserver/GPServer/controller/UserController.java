@@ -32,6 +32,7 @@ public class UserController {
 		try {
 			User user = service.doLogin(username,password);
 			map.put("user", user);
+			
 		} catch (Exception e) {
 			request.setAttribute("error", e.getMessage());
 			return "login";

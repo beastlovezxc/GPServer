@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.gpserver.GPServer.entity.TempStatus;
 import com.gpserver.GPServer.entity.UserInfo;
+import com.gpserver.GPServer.service.TempStatusService;
 import com.gpserver.GPServer.service.UserInfoService;
 
 @Controller
@@ -20,6 +22,8 @@ public class UserInfoController {
 
 	@Resource
 	UserInfoService service;
+	@Resource 
+	TempStatusService tempStatusService;
 	@RequestMapping(value = "userregister")
 	public String userRegister() {
 		return "/register";
@@ -48,7 +52,12 @@ public class UserInfoController {
 		try{
 			UserInfo userInfo = service.doLogin(user.getUserName());
 			if(user.getUserName().equals(userInfo.getUserName()) && user.getPassword().equals(userInfo.getPassword())) {
-				map.put("user", user);
+				TempStatus tempStatus = tempStatusService.getAllTemp();
+				map.put("airTemp", tempStatus.getAirTemp());
+				map.put("heartTemp", tempStatus.getHeartTemp());
+				map.put("powercost", tempStatus.getPowercost());
+				map.put("electricpower", tempStatus.getElectricpower());
+				map.put("user", user.getUserName());
 				return "index";
 			} else {
 				request.setAttribute("error", "用户名不存在或密码错误！");

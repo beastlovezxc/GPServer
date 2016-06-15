@@ -137,40 +137,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>导航页</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Layouts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-laptop nav_icon"></i>家居状态<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="grids.html">Grid System</a>
+                                    <a href="showAllDeviceInfo.html">家居状态</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>日志<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="graphs.html">Graphs</a>
+                                    <a href="statusLog.html">变更记录</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Typography</a>
+                                    <a href="typography.html">消息记录</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>主机管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="inbox.html">Inbox</a>
+                                    <a href="inbox.html">接收</a>
                                 </li>
                                 <li>
-                                    <a href="compose.html">Compose email</a>
+                                    <a href="compose.html">推送</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="showAllDeviceInfo.html"><i class="fa fa-flask nav_icon"></i>Widgets</a>
+                            <a href="pushModify.html"><i class="fa fa-flask nav_icon"></i>推送模拟</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
@@ -194,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>Css<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>设备管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="media.html">Media</a>
@@ -219,8 +219,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         		<div class="r3_counter_box">
                     <i class="pull-left fa fa-thumbs-up icon-rounded"></i>
                     <div class="stats">
-                      <h5><strong>45%</strong></h5>
-                      <span>New Orders</span>
+                      <h5><strong>${airTemp }</strong></h5>
+                      <span>室内温度</span>
                     </div>
                 </div>
         	</div>
@@ -228,8 +228,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         		<div class="r3_counter_box">
                     <i class="pull-left fa fa-users user1 icon-rounded"></i>
                     <div class="stats">
-                      <h5><strong>1019</strong></h5>
-                      <span>New Visitors</span>
+                      <h5><strong>${heartTemp }</strong></h5>
+                      <span>热水器温度</span>
                     </div>
                 </div>
         	</div>
@@ -237,8 +237,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         		<div class="r3_counter_box">
                     <i class="pull-left fa fa-comment user2 icon-rounded"></i>
                     <div class="stats">
-                      <h5><strong>1012</strong></h5>
-                      <span>New Users</span>
+                      <h5><strong>${powercost }</strong></h5>
+                      <span>当月用电量</span>
                     </div>
                 </div>
         	</div>
@@ -246,8 +246,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         		<div class="r3_counter_box">
                     <i class="pull-left fa fa-dollar dollar1 icon-rounded"></i>
                     <div class="stats">
-                      <h5><strong>$450</strong></h5>
-                      <span>Profit Today</span>
+                      <h5><strong>${electricpower }W</strong></h5>
+                      <span>当前用电功率</span>
                     </div>
                 </div>
         	 </div>

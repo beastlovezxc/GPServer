@@ -17,4 +17,6 @@ public interface IDeviceInfoDao {
 
 	void deleteDeviceInfo(DeviceInfo deviceInfo);
 
+	List<DeviceInfo> getNormalDeviceList();
+
 }

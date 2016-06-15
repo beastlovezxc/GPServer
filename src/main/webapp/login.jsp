@@ -23,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body id="login">
   <div class="login-logo">
-    <!--  <a href="index.html"> <img src="images/logo.png" alt=""/></a> -->
+    <!--  <a href="index.html">  <img src="images/logo.png" alt=""/></a> -->
   </div>
   <h2 class="form-heading">用户登录</h2>
   <div class="app-cam">

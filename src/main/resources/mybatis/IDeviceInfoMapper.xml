@@ -14,4 +14,8 @@
 	<delete id = "deleteDeviceInfo" parameterType="deviceInfo">
 		DELETE FROM deviceinfo WHERE deviceid = #{deviceId};
 	</delete>
+	
+	<select id="getNormalDeviceList" resultType="deviceInfo">
+		SELECT * FROM deviceinfo WHERE devicestatus = 1;
+	</select>
 </mapper>

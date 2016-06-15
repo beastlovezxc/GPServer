@@ -1,11 +1,8 @@
-<%@ page import="com.gpserver.GPServer.entity.DeviceInfo"%>
-<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>Widgets</title>
+<title>Forms</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -129,43 +126,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>导航页</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-laptop nav_icon"></i>家居状态<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Layouts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="showAllDeviceInfo.html">家居状态</a>
+                                    <a href="grids.html">Grid System</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>日志<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="statusLog.html">变更记录</a>
+                                    <a href="graphs.html">Graphs</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">消息记录</a>
+                                    <a href="typography.html">Typography</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>主机管理<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="inbox.html">接收</a>
+                                    <a href="inbox.html">Inbox</a>
                                 </li>
                                 <li>
-                                    <a href="compose.html">推送</a>
+                                    <a href="compose.html">Compose email</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="showAllDeviceInfo.html"><i class="fa fa-flask nav_icon"></i>推送模拟</a>
+                            <a href="widgets.html"><i class="fa fa-flask nav_icon"></i>Widgets</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
@@ -189,7 +186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>设备管理<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>Css<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="media.html">Media</a>
@@ -208,40 +205,125 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
         <div id="page-wrapper">
         <div class="graphs">
-	     <div class="widget_head">家居状态</div>
-		   <div class="widget_1">
-		   	 <%List deviceInfoList = (List)request.getAttribute("deviceInfoList"); %>
-		   	 <% for(int i = 0; i < deviceInfoList.size(); i++) { 
-		   	 		DeviceInfo deviceInfo = (DeviceInfo)deviceInfoList.get(i);
-		   	 %>
-		   	 
-		 	 <div class="col-sm-3 widget_1_box">
-		 	 <% if(deviceInfo.getDeviceStatus() == 1) {%>
-                <div class="tile-progress bg-info">
-               <%} else {%>
-                <div class="tile-progress bg-danger">
-                <%} %>
-                    <div class="content">
-                        <h4><i class="fa fa-dashboard icon-sm"></i> <%=deviceInfo.getDeviceName() %></h4>
-                        <div class="progress"><!--  <div class="progress-bar inviewport animated visible slideInLeft" style="width: 40%;"></div> --></div>
-                        <%if(deviceInfo.getDeviceStatus() == 1) { %>
-                        <span>正常</span>
-                         <%} else {%>
-                         <span>异常</span>
-                         <%} %>
-                    </div>
-                     
-                </div>
-             </div>
-             <%} %>
-              <div class="clearfix"> </div>
-		   </div>
-
-		   
-		   <div class="copy_layout">
-            <p>Copyright &copy; 2016.Bean.Cb All rights reserved.</p>
-           </div>
-	  </div>
+	     <div class="xs">
+  	       <h3>Forms</h3>
+  	         <div class="tab-content">
+						<div class="tab-pane active" id="horizontal-form">
+							<form class="form-horizontal"  action="addDeviceInfo.html" method="post">
+								<div class="form-group">
+									<label for="focusedinput" class="col-sm-2 control-label">家居名称</label>
+									<div class="col-sm-8">
+										<input type="text" name="deviceName" class="form-control1" id="focusedinput" placeholder="家居名称">
+								</div>
+								<div class="form-group">
+									<label for="inputPassword" class="col-sm-2 control-label"></label>
+									<div class="col-sm-8">
+										<input type="password" class="form-control1" id="inputPassword" placeholder="Password">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="checkbox" class="col-sm-2 control-label">Checkbox</label>
+									<div class="col-sm-8">
+										<div class="checkbox-inline1"><label><input type="checkbox"> Unchecked</label></div>
+										<div class="checkbox-inline1"><label><input type="checkbox" checked=""> Checked</label></div>
+										<div class="checkbox-inline1"><label><input type="checkbox" disabled=""> Disabled Unchecked</label></div>
+										<div class="checkbox-inline1"><label><input type="checkbox" disabled="" checked=""> Disabled Checked</label></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="checkbox" class="col-sm-2 control-label">Checkbox Inline</label>
+									<div class="col-sm-8">
+										<div class="checkbox-inline"><label><input type="checkbox"> Unchecked</label></div>
+										<div class="checkbox-inline"><label><input type="checkbox" checked=""> Checked</label></div>
+										<div class="checkbox-inline"><label><input type="checkbox" disabled=""> Disabled Unchecked</label></div>
+										<div class="checkbox-inline"><label><input type="checkbox" disabled="" checked=""> Disabled Checked</label></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="selector1" class="col-sm-2 control-label">Dropdown Select</label>
+									<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
+										<option>Lorem ipsum dolor sit amet.</option>
+										<option>Dolore, ab unde modi est!</option>
+										<option>Illum, fuga minus sit eaque.</option>
+										<option>Consequatur ducimus maiores voluptatum minima.</option>
+									</select></div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Multiple Select</label>
+									<div class="col-sm-8">
+										<select multiple="" class="form-control1">
+											<option>Option 1</option>
+											<option>Option 2</option>
+											<option>Option 3</option>
+											<option>Option 4</option>
+											<option>Option 5</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="txtarea1" class="col-sm-2 control-label">Textarea</label>
+									<div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
+								</div>
+								<div class="form-group">
+									<label for="radio" class="col-sm-2 control-label">Radio</label>
+									<div class="col-sm-8">
+										<div class="radio block"><label><input type="radio"> Unchecked</label></div>
+										<div class="radio block"><label><input type="radio" checked=""> Checked</label></div>
+										<div class="radio block"><label><input type="radio" disabled=""> Disabled Unchecked</label></div>
+										<div class="radio block"><label><input type="radio" disabled="" checked=""> Disabled Checked</label></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="radio" class="col-sm-2 control-label">Radio Inline</label>
+									<div class="col-sm-8">
+										<div class="radio-inline"><label><input type="radio"> Unchecked</label></div>
+										<div class="radio-inline"><label><input type="radio" checked=""> Checked</label></div>
+										<div class="radio-inline"><label><input type="radio" disabled=""> Disabled Unchecked</label></div>
+										<div class="radio-inline"><label><input type="radio" disabled="" checked=""> Disabled Checked</label></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="smallinput" class="col-sm-2 control-label label-input-sm">Small Input</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control1 input-sm" id="smallinput" placeholder="Small Input">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="mediuminput" class="col-sm-2 control-label">Medium Input</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control1" id="mediuminput" placeholder="Medium Input">
+									</div>
+								</div>
+								<div class="form-group mb-n">
+									<label for="largeinput" class="col-sm-2 control-label label-input-lg">Large Input</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control1 input-lg" id="largeinput" placeholder="Large Input">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+					<div class="bs-example" data-example-id="form-validation-states">
+  </div>
+	<div class="bs-example" data-example-id="form-validation-states-with-icons">
+    <form>
+      <div class="panel-footer">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<button class="btn-success btn">Submit</button>
+				<button class="btn-default btn">Cancel</button>
+				<button class="btn-inverse btn">Reset</button>
+			</div>
+		</div>
+	 </div>
+    </form>
+  </div>
+  </div>
+  <div class="copy_layout">
+      <p>Copyright &copy; 2016.BeanCb All rights reserved.</p>
+  </div>
+  </div>
       </div>
       <!-- /#page-wrapper -->
    </div>
