@@ -4,6 +4,10 @@
 	<cache eviction="FIFO" flushInterval="60000" size="500" readOnly="true"></cache>
 
 	<select id="selectStatusLogList" resultType="StatusLog">
-		SELECT * FROM statuslog;
+		SELECT * FROM statuslog ORDER BY changedate DESC;
 	</select>
+	<insert id="insertLogWithBreak" parameterType="StatusLog">
+		INSERT INTO statuslog (deviceid,beforestatus,changestatus,changedate)
+		VALUES (#{deviceId}, #{beforeStatus}, #{changeStatus}, #{changeDate});
+	</insert>
 </mapper>

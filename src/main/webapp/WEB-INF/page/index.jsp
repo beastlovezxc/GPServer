@@ -1,3 +1,6 @@
+<%@ page import="com.gpserver.GPServer.entity.BugStatistic"%>
+<%@ page import="com.gpserver.GPServer.entity.StatusLog"%>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Modern</a>
+                <a class="navbar-brand" href="index.html">Bean</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -108,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png"><span class="badge">9</span></a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header text-center">
-							<strong>Account</strong>
+							<strong>${user }</strong>
 						</li>
 						<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
 						<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
@@ -200,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="media.html">Media</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="addDeviceInfo.html">增加设备</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -217,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      	<div class="col_3">
         	<div class="col-md-3 widget widget1">
         		<div class="r3_counter_box">
-                    <i class="pull-left fa fa-thumbs-up icon-rounded"></i>
+                    <a href="pushAirTemp.html"><i class="pull-left fa fa-thumbs-up icon-rounded"></i></a>
                     <div class="stats">
                       <h5><strong>${airTemp }</strong></h5>
                       <span>室内温度</span>
@@ -226,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         	</div>
         	<div class="col-md-3 widget widget1">
         		<div class="r3_counter_box">
-                    <i class="pull-left fa fa-users user1 icon-rounded"></i>
+                   <a href="pushHeartTemp.html"> <i class="pull-left fa fa-users user1 icon-rounded"></i></a>
                     <div class="stats">
                       <h5><strong>${heartTemp }</strong></h5>
                       <span>热水器温度</span>
@@ -235,7 +238,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         	</div>
         	<div class="col-md-3 widget widget1">
         		<div class="r3_counter_box">
-                    <i class="pull-left fa fa-comment user2 icon-rounded"></i>
+                 <a href="pushPowerCost.html"><i class="pull-left fa fa-comment user2 icon-rounded"></i></a>
                     <div class="stats">
                       <h5><strong>${powercost }</strong></h5>
                       <span>当月用电量</span>
@@ -244,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         	</div>
         	<div class="col-md-3 widget">
         		<div class="r3_counter_box">
-                    <i class="pull-left fa fa-dollar dollar1 icon-rounded"></i>
+                   <a href="pushElectricPower.html"><i class="pull-left fa fa-dollar dollar1 icon-rounded"></i></a>
                     <div class="stats">
                       <h5><strong>${electricpower }W</strong></h5>
                       <span>当前用电功率</span>
@@ -260,62 +263,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    <div class="col-md-4 span_8">
 		       <div class="activity_box">
 		        <div class="scrollbar" id="style-2">
+		        	<%List statusLogList = (List)request.getAttribute("statusLogList"); %>
+		   					 <% for(int i = 0; i < statusLogList.size(); i++) { 
+		   	 						StatusLog statusLog = (StatusLog)statusLogList.get(i);
+		   						 %>
                    <div class="activity-row">
 	                 <div class="col-xs-1"><i class="fa fa-thumbs-up text-info icon_13"> </i>  </div>
 	                 <div class="col-xs-3 activity-img"><img src='images/5.png' class="img-responsive" alt=""/></div>
 	                 <div class="col-xs-8 activity-desc">
-	                 	<h5><a href="#">Lorem Ipsum</a> liked <a href="#">random</a></h5>
-	                    <p>Lorem Ipsum is simply dummy</p>
-	                    <h6>8:03</h6>
+	                 	<h5><a href="#"><%=statusLog.getDeviceId() %></a> 号家居由<% switch(statusLog.getBeforeStatus()) {
+          			case 0:%>异常<%break;
+          			case 1:%>正常<%break;
+          			}%> 变为<% switch(statusLog.getChangeStatus()) {
+          			case 0:%>异常<%break;
+          			case 1:%>正常<%break;
+          			}%></h5>
+	                    <p><%=statusLog.getChangeDate() %></p>
+	                    <!--  <h6>8:03</h6> -->
 	                 </div>
 	                 <div class="clearfix"> </div>
                     </div>
-	  			    <div class="activity-row">
-	                 <div class="col-xs-1"><i class="fa fa-comment text-info"></i> </div>
-	                 <div class="col-xs-3 activity-img"><img src='images/3.png' class="img-responsive" alt=""/></div>
-	                 <div class="col-xs-8 activity-desc">
-	                 	<h5><a href="#">simply random</a> liked <a href="#">passages</a></h5>
-	                    <p>Lorem Ipsum is simply dummy</p>
-	                    <h6>8:03</h6>
-	                 </div>
-	                 <div class="clearfix"> </div>
-                    </div>
-                    <div class="activity-row">
-	                 <div class="col-xs-1"><i class="fa fa-check text-info icon_11"></i></div>
-	                 <div class="col-xs-3 activity-img"><img src='images/1.png' class="img-responsive" alt=""/></div>
-	                 <div class="col-xs-8 activity-desc">
-	                 	<h5><a href="#">standard chunk</a> liked <a href="#">model</a></h5>
-	                    <p>Lorem Ipsum is simply dummy</p>
-	                    <h6>8:03</h6>
-	                 </div>
-	                 <div class="clearfix"> </div>
-                    </div>
-                    <div class="activity-row1">
-	                 <div class="col-xs-1"><i class="fa fa-user text-info icon_12"></i></div>
-	                 <div class="col-xs-3 activity-img"><img src='images/4.png' class="img-responsive" alt=""/></div>
-	                 <div class="col-xs-8 activity-desc">
-	                 	<h5><a href="#">perspiciatis</a> liked <a href="#">donating</a></h5>
-	                    <p>Lorem Ipsum is simply dummy</p>
-	                    <h6>8:03</h6>
-	                 </div>
-	                 <div class="clearfix"> </div>
-                     </div>
+	  			    <%} %>
 	  		        </div>
 		          </div>
 		    </div>
 			<div class="col-md-4 stats-info">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Browser Stats</h4>
+                    <h4 class="panel-title">近期故障记录</h4>
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled">
-                        <li>Google Chrome<div class="text-success pull-right">12%<i class="fa fa-level-up"></i></div></li>
+                    <li>家居ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 故障类型<div class="text-success pull-right">故障时间</div></li>
+                    	 <%List bugStatisticList = (List)request.getAttribute("bugStatisticList"); %>
+		   					 <% for(int i = 0; i < bugStatisticList.size(); i++) { 
+		   	 						BugStatistic bugStatistic = (BugStatistic)bugStatisticList.get(i);
+		   						 %>
+		   				<li><%=bugStatistic.getDeviceId() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=bugStatistic.getBugType() %><div class="text-success pull-right"><%=bugStatistic.getBugtime() %></div></li>
+                    <!--  <li>Google Chrome<div class="text-success pull-right">12%<i class="fa fa-level-up"></i></div></li>
                         <li>Firefox<div class="text-success pull-right">15%<i class="fa fa-level-up"></i></div></li>
                         <li>Internet Explorer<div class="text-success pull-right">18%<i class="fa fa-level-up"></i></div></li>
                         <li>Safari<div class="text-danger pull-right">17%<i class="fa fa-level-down"></i></div></li>
                         <li>Opera<div class="text-danger pull-right">10%<i class="fa fa-level-down"></i></div></li>
                         <li>Mobile &amp; tablet<div class="text-success pull-right">14%<i class="fa fa-level-up"></i></div></li>
-                        <li class="last">Others<div class="text-success pull-right">5%<i class="fa fa-level-up"></i></div></li> 
+                        <li class="last">Others<div class="text-success pull-right">5%<i class="fa fa-level-up"></i></div></li>  -->
+                        <%} %>
                     </ul>
                 </div>
             </div>

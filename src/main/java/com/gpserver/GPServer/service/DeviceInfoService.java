@@ -35,4 +35,9 @@ public class DeviceInfoService {
 		dao.deleteDeviceInfo(deviceInfo);
 	}
 
+	public void updateDevicecInfoById(int intValue) {
+		// TODO Auto-generated method stub
+		dao.updateDeviceInfoById(intValue);
+	}
+
 }

@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Modern</a>
+                <a class="navbar-brand" href="index.html">Bean</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -124,47 +124,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<form class="navbar-form navbar-right">
               <input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
             </form>
-            <div class="navbar-default sidebar" role="navigation">
+                        <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>导航页</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Layouts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-laptop nav_icon"></i>家居状态<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="grids.html">Grid System</a>
+                                    <a href="showAllDeviceInfo.html">家居状态</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>日志<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="graphs.html">Graphs</a>
+                                    <a href="statusLog.html">变更记录</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Typography</a>
+                                    <a href="typography.html">消息记录</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>主机管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="inbox.html">Inbox</a>
+                                    <a href="inbox.html">接收</a>
                                 </li>
                                 <li>
-                                    <a href="compose.html">Compose email</a>
+                                    <a href="compose.html">推送</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="widgets.html"><i class="fa fa-flask nav_icon"></i>Widgets</a>
+                            <a href="pushModify.html"><i class="fa fa-flask nav_icon"></i>推送模拟</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
@@ -188,13 +188,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>Css<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>设备管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="media.html">Media</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="addDeviceInfo.html">增加设备</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -212,6 +212,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div class="bs-example"> 
     <table class="table">
       <tbody>
+          <td>设备id</td>
+          <td>设备名称</td>
+          <td>设备状态</td>
+          <td>操作</td>
       	<%List deviceInfoList = (List)request.getAttribute("deviceInfoList"); %>
 		   	 <% for(int i = 0; i < deviceInfoList.size(); i++) { 
 		   	 		DeviceInfo deviceInfo = (DeviceInfo)deviceInfoList.get(i);
@@ -219,7 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <tr>
           <td><h3 id="h3"><%=deviceInfo.getDeviceId() %><a class="anchorjs-link" href="#h1.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h1></td>
           <td class="type-info"><h3 id="h3"><%=deviceInfo.getDeviceName() %></h1></td>
-          <td class="type-info"><h3 id="h3"><%=deviceInfo.getDeviceStatus() %></h1></td>
+          <td class="type-info"><h3 id="h3"><%if(deviceInfo.getDeviceStatus() == 1) {%>正常<%} else { %>异常<%} %></h1></td>
           <td><a href="sendMessage/<%=deviceInfo.getDeviceId() %>.html"><button type="button" class="btn btn_5 btn-lg btn-primary" >变更</button></a></td>
         </tr>
         <%} %>

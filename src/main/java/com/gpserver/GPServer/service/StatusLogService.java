@@ -1,5 +1,6 @@
 package com.gpserver.GPServer.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,6 +20,17 @@ public class StatusLogService {
 		// TODO Auto-generated method stub
 		List<StatusLog> statusLogList = dao.selectStatusLogList();
 		return statusLogList;
+	}
+
+	public void insertLogWithBreak(int intValue) {
+		// TODO Auto-generated method stub
+		StatusLog statusLog = new StatusLog();
+		Timestamp d = new Timestamp(System.currentTimeMillis()); 
+		statusLog.setChangeDate(d);
+		statusLog.setDeviceId(intValue);
+		statusLog.setChangeStatus(0);
+		statusLog.setBeforeStatus(1);
+		dao.insertLogWithBreak(statusLog);
 	}
 
 }

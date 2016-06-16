@@ -1,5 +1,8 @@
 package com.gpserver.GPServer.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -34,17 +37,26 @@ public class PushModifyController {
 		return "modify";
 	}
 	
+	
 	@RequestMapping(value="sendMessage/{deviceId}")
 	//@ResponseBody
-	public String toIndexPage(@PathVariable("deviceId") Integer deviceId) {
+	public String toIndexPage(@PathVariable("deviceId") Integer deviceId,HttpServletRequest request,ModelMap map) {
 		Integer id = deviceId;
 		try {
 			deviceInfoService.updateDevicecInfoById(id.intValue());
 			statusLogService.insertLogWithBreak(id.intValue());
 			
+			Date date = new Date();
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String time = format.format(date);
+			if(pushModifyService.pushMessage(id.intValue(),"于" + time +"出现故障").equals("success") ){
+				return "pushSuccess";
+			}
+			toModifyPage(request, map);
+			
 			
 		} catch (Exception ex) {
-			
+			return "pushFail";
 		}
 		return "index";
 	}

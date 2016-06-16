@@ -29,12 +29,13 @@ public class DeviceInfoController {
 	
 	@RequestMapping(value = "addDeviceInfo")
 	public String addDeviceInfo() {
-		return "doAddDeviceInfo";
+		return "addDeviceInfo";
 	}
 	@RequestMapping(value = "doAddDeviceInfo", method = RequestMethod.POST)
 	public String doAddDeviceInfo(DeviceInfo deviceInfo) {
+		deviceInfo.setDeviceStatus(1);
 		service.addDeviceInfo(deviceInfo);
-		return "home";
+		return "index";
 	}
 	@RequestMapping(value = "updateDeviceInfo")
 	public String updateDevieInfo() {

@@ -19,4 +19,6 @@ public interface IDeviceInfoDao {
 
 	List<DeviceInfo> getNormalDeviceList();
 
+	void updateDeviceInfoById(int intValue);
+
 }

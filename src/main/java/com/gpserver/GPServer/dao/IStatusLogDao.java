@@ -11,4 +11,6 @@ public interface IStatusLogDao {
 
 	List<StatusLog> selectStatusLogList();
 
+	void insertLogWithBreak(StatusLog statusLog);
+
 }

@@ -10,7 +10,9 @@
 	<update id="updateDeviceInfo" parameterType="deviceInfo">
 		UPDATE deviceinfo set devicename = #{deviceName},devicestatus = #{deviceStatus},type = #{type} where deviceid = #{deviceId};
 	</update>
-	
+	<update id="updateDeviceInfoById" parameterType="int">
+		UPDATE deviceinfo set devicestatus = 0 WHERE deviceid = #{deviceId};
+	</update>
 	<delete id = "deleteDeviceInfo" parameterType="deviceInfo">
 		DELETE FROM deviceinfo WHERE deviceid = #{deviceId};
 	</delete>
@@ -18,4 +20,9 @@
 	<select id="getNormalDeviceList" resultType="deviceInfo">
 		SELECT * FROM deviceinfo WHERE devicestatus = 1;
 	</select>
+	
+	<insert id="addDeviceInfo" parameterType="deviceInfo">
+		INSERT INTO deviceinfo (deviceid,devicename,type,subtype,devicestatus)
+		VALUES (#{deviceId},#{deviceName},#{type},#{subType},#{deviceStatus});
+	</insert>
 </mapper>

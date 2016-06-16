@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Forms</title>
+<title>添加设备</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -32,7 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Modern</a>
+                <a class="navbar-brand" href="index.html">Bean</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png" alt=""/><span class="badge">9</span></a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header text-center">
-							<strong>Account</strong>
+							<strong>${user } </strong>
 						</li>
 						<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
 						<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
@@ -122,47 +122,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<form class="navbar-form navbar-right">
               <input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
             </form>
-            <div class="navbar-default sidebar" role="navigation">
+                        <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>导航页</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Layouts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-laptop nav_icon"></i>家居状态<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="grids.html">Grid System</a>
+                                    <a href="showAllDeviceInfo.html">家居状态</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>Menu Levels<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>日志<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="graphs.html">Graphs</a>
+                                    <a href="statusLog.html">变更记录</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Typography</a>
+                                    <a href="typography.html">消息记录</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>主机管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="inbox.html">Inbox</a>
+                                    <a href="inbox.html">接收</a>
                                 </li>
                                 <li>
-                                    <a href="compose.html">Compose email</a>
+                                    <a href="compose.html">推送</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="widgets.html"><i class="fa fa-flask nav_icon"></i>Widgets</a>
+                            <a href="pushModify.html"><i class="fa fa-flask nav_icon"></i>推送模拟</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
@@ -186,13 +186,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>Css<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>设备管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="media.html">Media</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="addDeviceInfo.html">增加设备</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -204,126 +204,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
-        <div class="graphs">
-	     <div class="xs">
-  	       <h3>Forms</h3>
-  	         <div class="tab-content">
-						<div class="tab-pane active" id="horizontal-form">
-							<form class="form-horizontal"  action="addDeviceInfo.html" method="post">
-								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">家居名称</label>
-									<div class="col-sm-8">
-										<input type="text" name="deviceName" class="form-control1" id="focusedinput" placeholder="家居名称">
-								</div>
-								<div class="form-group">
-									<label for="inputPassword" class="col-sm-2 control-label"></label>
-									<div class="col-sm-8">
-										<input type="password" class="form-control1" id="inputPassword" placeholder="Password">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="checkbox" class="col-sm-2 control-label">Checkbox</label>
-									<div class="col-sm-8">
-										<div class="checkbox-inline1"><label><input type="checkbox"> Unchecked</label></div>
-										<div class="checkbox-inline1"><label><input type="checkbox" checked=""> Checked</label></div>
-										<div class="checkbox-inline1"><label><input type="checkbox" disabled=""> Disabled Unchecked</label></div>
-										<div class="checkbox-inline1"><label><input type="checkbox" disabled="" checked=""> Disabled Checked</label></div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="checkbox" class="col-sm-2 control-label">Checkbox Inline</label>
-									<div class="col-sm-8">
-										<div class="checkbox-inline"><label><input type="checkbox"> Unchecked</label></div>
-										<div class="checkbox-inline"><label><input type="checkbox" checked=""> Checked</label></div>
-										<div class="checkbox-inline"><label><input type="checkbox" disabled=""> Disabled Unchecked</label></div>
-										<div class="checkbox-inline"><label><input type="checkbox" disabled="" checked=""> Disabled Checked</label></div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="selector1" class="col-sm-2 control-label">Dropdown Select</label>
-									<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
-										<option>Lorem ipsum dolor sit amet.</option>
-										<option>Dolore, ab unde modi est!</option>
-										<option>Illum, fuga minus sit eaque.</option>
-										<option>Consequatur ducimus maiores voluptatum minima.</option>
-									</select></div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label">Multiple Select</label>
-									<div class="col-sm-8">
-										<select multiple="" class="form-control1">
-											<option>Option 1</option>
-											<option>Option 2</option>
-											<option>Option 3</option>
-											<option>Option 4</option>
-											<option>Option 5</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="txtarea1" class="col-sm-2 control-label">Textarea</label>
-									<div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
-								</div>
-								<div class="form-group">
-									<label for="radio" class="col-sm-2 control-label">Radio</label>
-									<div class="col-sm-8">
-										<div class="radio block"><label><input type="radio"> Unchecked</label></div>
-										<div class="radio block"><label><input type="radio" checked=""> Checked</label></div>
-										<div class="radio block"><label><input type="radio" disabled=""> Disabled Unchecked</label></div>
-										<div class="radio block"><label><input type="radio" disabled="" checked=""> Disabled Checked</label></div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="radio" class="col-sm-2 control-label">Radio Inline</label>
-									<div class="col-sm-8">
-										<div class="radio-inline"><label><input type="radio"> Unchecked</label></div>
-										<div class="radio-inline"><label><input type="radio" checked=""> Checked</label></div>
-										<div class="radio-inline"><label><input type="radio" disabled=""> Disabled Unchecked</label></div>
-										<div class="radio-inline"><label><input type="radio" disabled="" checked=""> Disabled Checked</label></div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="smallinput" class="col-sm-2 control-label label-input-sm">Small Input</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1 input-sm" id="smallinput" placeholder="Small Input">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="mediuminput" class="col-sm-2 control-label">Medium Input</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="mediuminput" placeholder="Medium Input">
-									</div>
-								</div>
-								<div class="form-group mb-n">
-									<label for="largeinput" class="col-sm-2 control-label label-input-lg">Large Input</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1 input-lg" id="largeinput" placeholder="Large Input">
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-					
-					<div class="bs-example" data-example-id="form-validation-states">
-  </div>
-	<div class="bs-example" data-example-id="form-validation-states-with-icons">
-    <form>
-      <div class="panel-footer">
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
-				<button class="btn-success btn">Submit</button>
-				<button class="btn-default btn">Cancel</button>
-				<button class="btn-inverse btn">Reset</button>
-			</div>
-		</div>
-	 </div>
-    </form>
-  </div>
-  </div>
-  <div class="copy_layout">
-      <p>Copyright &copy; 2016.BeanCb All rights reserved.</p>
-  </div>
-  </div>
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	    <h3>增加设备</h3>
+  	    <div class="well1 white">
+        <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()" action="doAddDeviceInfo.html" method="post">
+          <fieldset>
+            <div class="form-group">
+              <label class="control-label">设备名称</label>
+              <input type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng-model="model.name" required="" name="deviceName">
+            </div>
+            <div class="form-group">
+              <label class="control-label">设备Id</label>
+              <input type="email" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" ng-model="model.email" required="" name="deviceId">
+            </div>
+            <div class="form-group filled">
+              <label class="control-label">设备类型</label>
+              <select class="form-control1 ng-invalid ng-invalid-required" ng-model="model.select" required="" name="type"><option value="? undefined:undefined ?"></option>
+                <option value="0">娱乐系统</option>
+                <option value="1">安全系统</option>
+                <option value="2">生活系统</option>
+              </select>
+            </div>
+            <div class="form-group filled">
+              <label class="control-label">设备子类型</label>
+              <select class="form-control1 ng-invalid ng-invalid-required" ng-model="model.select" required="" name="subType"><option value="? undefined:undefined ?"></option>
+                <option value="0">音频系统</option>
+                <option value="1">视频系统</option>
+                <option value="2">影音共享系统</option>
+                <option value="3">门禁系统</option>
+                <option value="4">监控系统</option>
+                <option value="5">灯光系统</option>
+                <option value="6">空调系统</option>
+                <option value="7">地热系统</option>
+                <option value="8">热水器</option>
+                <option value="9">冰箱</option>
+                <option value="10">微波炉</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-default">Reset</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="copy_layout">
+      <p>Copyright &copy; 2016. All rights reserved.</p>
+   </div>
+   </div>
       </div>
       <!-- /#page-wrapper -->
    </div>
