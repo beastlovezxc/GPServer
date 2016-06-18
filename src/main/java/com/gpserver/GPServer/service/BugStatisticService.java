@@ -1,5 +1,6 @@
 package com.gpserver.GPServer.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -18,6 +19,19 @@ public class BugStatisticService {
 		// TODO Auto-generated method stub
 		List<BugStatistic> bugStatistic = dao.getAllBug();
 		return bugStatistic;
+	}
+	public void insertBugStatisticLogByModify(int intValue) {
+		// TODO Auto-generated method stub
+		Timestamp d = new Timestamp(System.currentTimeMillis()); 
+		BugStatistic bugStatistic = new BugStatistic();
+		bugStatistic.setDeviceId(intValue);
+		bugStatistic.setBugtime(d);
+		bugStatistic.setBugType("2");
+		dao.insertBugStatisticLogByModify(bugStatistic);
+	}
+	public List<BugStatistic> showBugStatisticList() {
+		// TODO Auto-generated method stub
+		return dao.showBugStatisticList();
 	}
 
 }

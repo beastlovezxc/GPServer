@@ -9,4 +9,6 @@ public interface ITempStatusDao {
 
 	TempStatus getAllTemp();
 
+	void updateInroomInfo(TempStatus tempStatus);
+
 }

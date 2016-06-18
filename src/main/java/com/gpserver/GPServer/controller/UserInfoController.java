@@ -82,6 +82,10 @@ public class UserInfoController {
 			return "login";
 		}
 	}
+	@RequestMapping(value="pushSuccess") 
+	public String toPushSuccessPage() {
+		return "pushSuccess";
+	}
 	@RequestMapping(value = "doLogout")
 	public String doLogout(SessionStatus status) {
 		status.setComplete();

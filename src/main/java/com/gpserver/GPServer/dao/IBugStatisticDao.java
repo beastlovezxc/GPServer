@@ -11,4 +11,8 @@ public interface IBugStatisticDao {
 
 	List<BugStatistic> getAllBug();
 
+	void insertBugStatisticLogByModify(BugStatistic bugStatistic);
+
+	List<BugStatistic> showBugStatisticList();
+
 }

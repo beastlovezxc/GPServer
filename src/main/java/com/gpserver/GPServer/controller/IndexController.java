@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gpserver.GPServer.dao.ITempStatusDao;
 import com.gpserver.GPServer.entity.BugStatistic;
 import com.gpserver.GPServer.entity.StatusLog;
 import com.gpserver.GPServer.entity.TempStatus;
@@ -67,6 +66,10 @@ public class IndexController {
 		pushModifyService.sendPowerCostMessage(tempStatus.getPowercost());
 		map = doManyThings(map);
 		return "index";
+	}
+	@RequestMapping(value = "editSetting")
+	public String toEditSettingPage(ModelMap map) {
+		return "editSetting";
 	}
 	public ModelMap doManyThings(ModelMap map) {
 		TempStatus tempStatus = tempStatusService.getAllTemp();

@@ -21,4 +21,6 @@ public interface IDeviceInfoDao {
 
 	void updateDeviceInfoById(int intValue);
 
+	void resetSetting();
+
 }

@@ -55,6 +55,10 @@ public class DeviceInfoController {
 		service.deleteDeviceInfo(deviceInfo);
 		return "home";
 	}
-	
+	@RequestMapping(value = "reset")
+	public String resetSetting() {
+		service.resetSetting();
+		return "resetSuccess";
+	}
 	
 }

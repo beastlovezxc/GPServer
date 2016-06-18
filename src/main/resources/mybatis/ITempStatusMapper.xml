@@ -6,5 +6,7 @@
 	<select id="getAllTemp" resultType="tempStatus">
 		SELECT * FROM indexshow;
 	</select>
-	
+	<update id="updateInroomInfo" parameterType="tempStatus">
+		UPDATE indexshow SET airtemp = ${airTemp}, hearttemp = ${heartTemp}, powercost = ${powercost}, electricpower = ${electricpower} WHERE id = 0;
+	</update>
 </mapper>

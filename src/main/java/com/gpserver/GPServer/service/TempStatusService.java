@@ -18,4 +18,9 @@ public class TempStatusService {
 		return dao.getAllTemp();
 	}
 
+	public void updateInroomInfo(TempStatus tempStatus) {
+		// TODO Auto-generated method stub
+		dao.updateInroomInfo(tempStatus);
+	}
+
 }

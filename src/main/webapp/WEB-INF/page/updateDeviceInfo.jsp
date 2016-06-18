@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="pushModify.html"><i class="fa fa-flask nav_icon"></i>推送模拟</a>
                         </li>
-                         <li>
+                         <!-- <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -174,13 +174,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="validation.html">Validation</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                            /.nav-second-level
+                        </li> -->
                         <li>
-                            <a href="#"><i class="fa fa-table nav_icon"></i>Tables<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>故障列表<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="basic_tables.html">Basic Tables</a>
+                                    <a href="showBugStatisticList.html">故障列表</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>设备管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="media.html">Media</a>
+                                    <a href="editSetting.html">设备重置</a>
                                 </li>
                                 <li>
                                     <a href="addDeviceInfo.html">增加设备</a>

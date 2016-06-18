@@ -40,4 +40,9 @@ public class DeviceInfoService {
 		dao.updateDeviceInfoById(intValue);
 	}
 
+	public void resetSetting() {
+		// TODO Auto-generated method stub
+		dao.resetSetting();
+	}
+
 }

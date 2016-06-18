@@ -1,10 +1,9 @@
-<%@ page import="com.gpserver.GPServer.entity.DeviceInfo"%>
-<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>Typography</title>
+<title>Basic_tables</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -102,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png" alt=""/><span class="badge">9</span></a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header text-center">
-							<strong>Account</strong>
+							<strong>${user }</strong>
 						</li>
 						<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
 						<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
@@ -206,35 +205,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
-        <div class="graphs">
-  <div class="grid_3 grid_4">
-  <h3>警报推送模拟</h3>
-  <div class="bs-example"> 
-    <table class="table">
-      <tbody>
-          <td>设备id</td>
-          <td>设备名称</td>
-          <td>设备状态</td>
-          <td>操作</td>
-      	<%List deviceInfoList = (List)request.getAttribute("deviceInfoList"); %>
-		   	 <% for(int i = 0; i < deviceInfoList.size(); i++) { 
-		   	 		DeviceInfo deviceInfo = (DeviceInfo)deviceInfoList.get(i);
-		   	 %>
-        <tr>
-          <td><h3 id="h3"><%=deviceInfo.getDeviceId() %><a class="anchorjs-link" href="#h1.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h1></td>
-          <td class="type-info"><h3 id="h3"><%=deviceInfo.getDeviceName() %></h1></td>
-          <td class="type-info"><h3 id="h3"><%if(deviceInfo.getDeviceStatus() == 1) {%>正常<%} else { %>异常<%} %></h1></td>
-          <td><a href="sendMessage/<%=deviceInfo.getDeviceId() %>.html"><button type="button" class="btn btn_5 btn-lg btn-primary" >变更</button></a></td>
-        </tr>
-        <%} %>
-      </tbody>
-    </table>
-    </div>
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	 <h3>全部状态重置</h3>
+  	<div class="bs-example4" data-example-id="contextual-table">
+    <a href="reset.html"><button type="button" class="btn btn_5 btn-lg btn-primary">重置设定</button></a>
+   </div>
+   <h3>室内家居状态重置</h3>
+   <div class="bs-example4" data-example-id="contextual-table">
+   		<form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()" action="updateInroomInfo.html" method="post">
+          <fieldset>
+            <div class="form-group">
+              <label class="control-label">室内温度</label>
+              <input type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng-model="model.name" required="" name="airTemp">
+            </div>
+            <div class="form-group">
+              <label class="control-label">热水器温度</label>
+              <input type="email" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" ng-model="model.email" required="" name="heartTemp">
+            </div>
+            <div class="form-group">
+              <label class="control-label">当月用电量</label>
+              <input type="email" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" ng-model="model.email" required="" name="powercost">
+            </div>
+            <div class="form-group">
+              <label class="control-label">当前用电功率</label>
+              <input type="email" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" ng-model="model.email" required="" name="electricpower">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-default">Reset</button>
+            </div>
+          </fieldset>
+        </form>
+   </div>
+   
+  <div class="copy_layout">
+      <p>Copyright &copy; 2016.BeanCb All rights reserved.</p>
   </div>
-         <div class="copy_layout">
-         <p>Copyright &copy; 2016.Bean.Cb All rights reserved.</p>
-        </div>	
-        </div>
+   </div>
       </div>
       <!-- /#page-wrapper -->
    </div>

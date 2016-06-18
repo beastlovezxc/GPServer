@@ -4,7 +4,13 @@
 	<cache eviction="FIFO" flushInterval="60000" size="500" readOnly="true"></cache>
 
 	<select id="getAllBug" resultType="BugStatistic">
-		SELECT * FROM bugstatistic;
+		SELECT * FROM bugstatistic ORDER BY bugtime DESC LIMIT 6;
 	</select>
-	
+	<insert id="insertBugStatisticLogByModify" parameterType="BugStatistic">
+		INSERT INTO bugstatistic (deviceid,bugtime,bugtype)
+		VALUES (#{deviceId}, #{bugtime}, #{bugType});
+	</insert>
+	<select id="showBugStatisticList" resultType="BugStatistic">
+		SELECT * FROM bugstatistic ORDER BY bugtime DESC;
+	</select>
 </mapper>

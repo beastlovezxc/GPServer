@@ -175,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="pushModify.html"><i class="fa fa-flask nav_icon"></i>推送模拟</a>
                         </li>
-                         <li>
+                         <!-- <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -185,13 +185,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="validation.html">Validation</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                            /.nav-second-level
+                        </li> -->
                         <li>
-                            <a href="#"><i class="fa fa-table nav_icon"></i>Tables<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>故障列表<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="basic_tables.html">Basic Tables</a>
+                                    <a href="showBugStatisticList.html">故障列表</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -200,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>设备管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="media.html">Media</a>
+                                    <a href="editSetting.html">设备重置</a>
                                 </li>
                                 <li>
                                     <a href="addDeviceInfo.html">增加设备</a>
@@ -298,7 +298,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   					 <% for(int i = 0; i < bugStatisticList.size(); i++) { 
 		   	 						BugStatistic bugStatistic = (BugStatistic)bugStatisticList.get(i);
 		   						 %>
-		   				<li><%=bugStatistic.getDeviceId() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=bugStatistic.getBugType() %><div class="text-success pull-right"><%=bugStatistic.getBugtime() %></div></li>
+		   				<li><%=bugStatistic.getDeviceId() %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<% if(bugStatistic.getBugType().equals("2")) {%>模拟故障<%}else{ %>自然故障<%} %><div class="text-success pull-right"><%=bugStatistic.getBugtime() %></div></li>
                     <!--  <li>Google Chrome<div class="text-success pull-right">12%<i class="fa fa-level-up"></i></div></li>
                         <li>Firefox<div class="text-success pull-right">15%<i class="fa fa-level-up"></i></div></li>
                         <li>Internet Explorer<div class="text-success pull-right">18%<i class="fa fa-level-up"></i></div></li>
@@ -404,132 +404,6 @@ var detail = new Rickshaw.Graph.HoverDetail({
        </div>
        <div class="clearfix"> </div>
     </div>
-    <div class="content_bottom">
-     <div class="col-md-8 span_3">
-		  <div class="bs-example1" data-example-id="contextual-table">
-		    <table class="table">
-		      <thead>
-		        <tr>
-		          <th>#</th>
-		          <th>Column heading</th>
-		          <th>Column heading</th>
-		          <th>Column heading</th>
-		        </tr>
-		      </thead>
-		      <tbody>
-		        <tr class="active">
-		          <th scope="row">1</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">2</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="success">
-		          <th scope="row">3</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">4</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="info">
-		          <th scope="row">5</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">6</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="warning">
-		          <th scope="row">7</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">8</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="danger">
-		          <th scope="row">9</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		      </tbody>
-		    </table>
-		   </div>
-	   </div>
-	   <div class="col-md-4 span_4">
-		 <div class="col_2">
-		  <div class="box_1">
-		   <div class="col-md-6 col_1_of_2 span_1_of_2">
-             <a class="tiles_info">
-			    <div class="tiles-head red1">
-			        <div class="text-center">Orders</div>
-			    </div>
-			    <div class="tiles-body red">10</div>
-			 </a>
-		   </div>
-		   <div class="col-md-6 col_1_of_2 span_1_of_2">
-              <a class="tiles_info tiles_blue">
-			    <div class="tiles-head tiles_blue1">
-			        <div class="text-center">Sales</div>
-			    </div>
-			    <div class="tiles-body blue1">30</div>
-			  </a>
-		   </div>
-		   <div class="clearfix"> </div>
-		 </div>
-		 <div class="box_1">
-		   <div class="col-md-6 col_1_of_2 span_1_of_2">
-             <a class="tiles_info">
-			    <div class="tiles-head fb1">
-			        <div class="text-center">Facebook</div>
-			    </div>
-			    <div class="tiles-body fb2">10</div>
-			 </a>
-		   </div>
-		   <div class="col-md-6 col_1_of_2 span_1_of_2">
-              <a class="tiles_info tiles_blue">
-			    <div class="tiles-head tw1">
-			        <div class="text-center">Twitter</div>
-			    </div>
-			    <div class="tiles-body tw2">30</div>
-			  </a>
-		   </div>
-		   <div class="clearfix"> </div>
-		   </div>
-		  </div>
-		  <div class="cloud">
-			<div class="grid-date">
-				<div class="date">
-					<p class="date-in">New York</p>
-					<span class="date-on">Â°F Â°C </span>
-					<div class="clearfix"> </div>							
-				</div>
-				<h4>30Â°<i class="fa fa-cloud-upload"> </i></h4>
-			</div>
-			<p class="monday">Monday 10 July</p>
-		  </div>
-		</div>
-		<div class="clearfix"> </div>
-	    </div>
 		<div class="copy">
             <p>Copyright &copy; 2016.Bean.Cb All rights reserved.</p>
 	    </div>

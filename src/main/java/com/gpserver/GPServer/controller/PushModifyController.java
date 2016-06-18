@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gpserver.GPServer.entity.DeviceInfo;
+import com.gpserver.GPServer.service.BugStatisticService;
 import com.gpserver.GPServer.service.DeviceInfoService;
 import com.gpserver.GPServer.service.PushModifyService;
 import com.gpserver.GPServer.service.StatusLogService;
@@ -28,6 +29,8 @@ public class PushModifyController {
 	DeviceInfoService deviceInfoService;
 	@Resource
 	StatusLogService statusLogService;
+	@Resource
+	BugStatisticService bugStatisticService;
 	
 	@RequestMapping(value="pushModify")
 	public String toModifyPage(HttpServletRequest request,ModelMap map) {
@@ -40,26 +43,29 @@ public class PushModifyController {
 	
 	@RequestMapping(value="sendMessage/{deviceId}")
 	//@ResponseBody
-	public String toIndexPage(@PathVariable("deviceId") Integer deviceId,HttpServletRequest request,ModelMap map) {
+	public String toIndexPage(@PathVariable("deviceId") Integer deviceId) {
 		Integer id = deviceId;
 		try {
 			deviceInfoService.updateDevicecInfoById(id.intValue());
 			statusLogService.insertLogWithBreak(id.intValue());
-			
+			bugStatisticService.insertBugStatisticLogByModify(id.intValue());
 			Date date = new Date();
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String time = format.format(date);
 			if(pushModifyService.pushMessage(id.intValue(),"于" + time +"出现故障").equals("success") ){
-				return "pushSuccess";
+				return "redirect:../pushSuccess.html";
+
 			}
-			toModifyPage(request, map);
+			//toModifyPage(request, map);
 			
 			
 		} catch (Exception ex) {
-			return "pushFail";
+			return "redirect:../pushFail.html";
 		}
-		return "index";
+		return "redirect:../index.html";
 	}
+	
+
 	@RequestMapping(value="sendMessage")
 	public String toIndexPage() {
 		return "index";

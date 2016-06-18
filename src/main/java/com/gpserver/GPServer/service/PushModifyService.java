@@ -60,7 +60,23 @@ public class PushModifyService {
 		// TODO Auto-generated method stub
 		TITLE = "家居" + intValue + "号出现故障！";
 		ALERT = intValue+ "号家居" + string;
+		MSG_CONTENT = intValue+ "号家居" + string;
 		testSendPush();
+		JPushClient jPushClient = new JPushClient(masterSecret, appKey, 3);
+		
+		PushPayload payload = buildPushObject_all_all_alert_title_msg();
+		try {
+			jPushClient.sendPush(payload);
+		} catch (APIConnectionException e) {
+			 LOG.error("Connection error. Should retry later. ", e);
+		} catch (APIRequestException e) {
+			// TODO: handle exception
+			LOG.error("Error response from JPush server. Should review and fix it. ", e);
+            LOG.info("HTTP Status: " + e.getStatus());
+            LOG.info("Error Code: " + e.getErrorCode());
+            LOG.info("Error Message: " + e.getErrorMessage());
+            LOG.info("Msg ID: " + e.getMsgId());
+		}
 		return "success";
 	}
 	
@@ -156,6 +172,25 @@ public class PushModifyService {
                 .build();
     }
 
+    public static PushPayload buildPushObject_all_all_alert_title_msg() {
+    	return PushPayload.newBuilder()
+                .setPlatform(Platform.ios())
+                .setAudience(Audience.all())
+                .setNotification(Notification.newBuilder()
+                        .addPlatformNotification(IosNotification.newBuilder()
+                                .setAlert(ALERT)
+                                .setBadge(5)
+                                .setSound("happy")
+                                .addExtra("from", "JPush")
+                                .build())
+                        .build())
+                 .setMessage(Message.content(MSG_CONTENT))
+                 .setOptions(Options.newBuilder()
+                         .setApnsProduction(true)
+                         .build())
+                 .build();
+    			
+    }
     public static void testSendPushWithCustomConfig() {
         ClientConfig config = ClientConfig.getInstance();
         // Setup the custom hostname
@@ -224,12 +259,15 @@ public class PushModifyService {
 		// TODO Auto-generated method stub
 		TITLE = "当前室内温度为" + String.valueOf(airTemp);
 		ALERT = "当前室内温度为" + String.valueOf(airTemp);
+		MSG_CONTENT = "当前室内温度为" + String.valueOf(airTemp);
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey, 3);
         
         // For push, all you need do is to build PushPayload object.
-        PushPayload payload = buildPushObject_all_all_alert();
+        PushPayload payloadAlert = buildPushObject_all_all_alert();
+		PushPayload payload = buildPushObject_all_all_alert_title_msg();
         
         try {
+        	jpushClient.sendPush(payloadAlert);
             PushResult result = jpushClient.sendPush(payload);
             LOG.info("Got result - " + result);
             
@@ -251,12 +289,14 @@ public class PushModifyService {
 		// TODO Auto-generated method stub
 		TITLE = "当前热水器水温为" + String.valueOf(heartTemp);
 		ALERT = "当前热水器水温为" + String.valueOf(heartTemp);
+		MSG_CONTENT = "当前热水器水温为" + String.valueOf(heartTemp);
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey, 3);
-        
+		PushPayload payload = buildPushObject_all_all_alert_title_msg();
         // For push, all you need do is to build PushPayload object.
-        PushPayload payload = buildPushObject_all_all_alert();
+        PushPayload payloadAlert = buildPushObject_all_all_alert();
         
         try {
+        	jpushClient.sendPush(payloadAlert);
             PushResult result = jpushClient.sendPush(payload);
             LOG.info("Got result - " + result);
             
@@ -276,14 +316,17 @@ public class PushModifyService {
 
 	public void sendElectricpowerMessage(float electricpower) {
 		// TODO Auto-generated method stub
-		TITLE = "本月已耗电量" + String.valueOf(electricpower) + "度";
-		ALERT = "本月已耗电量" + String.valueOf(electricpower) + "度";
+		TITLE = "当前家中家用电气的耗电功率为" + String.valueOf(electricpower) + "瓦";
+		ALERT = "当前家中家用电气的耗电功率为" + String.valueOf(electricpower) + "瓦";
+		MSG_CONTENT = "当前家中家用电气的耗电功率为" + String.valueOf(electricpower) + "瓦";
+		
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey, 3);
-        
+     
         // For push, all you need do is to build PushPayload object.
-        PushPayload payload = buildPushObject_all_all_alert();
-        
+        PushPayload payloadAlert = buildPushObject_all_all_alert();
+        PushPayload payload = buildPushObject_all_all_alert_title_msg();
         try {
+        	jpushClient.sendPush(payloadAlert);
             PushResult result = jpushClient.sendPush(payload);
             LOG.info("Got result - " + result);
             
@@ -303,14 +346,16 @@ public class PushModifyService {
 
 	public void sendPowerCostMessage(float powercost) {
 		// TODO Auto-generated method stub
-		TITLE = "当前家中家用电气的耗电功率为" + String.valueOf(powercost) + "瓦";
-		ALERT = "当前家中家用电气的耗电功率为" + String.valueOf(powercost) + "瓦";
+		TITLE = "本月已耗电量" + String.valueOf(powercost) + "度";
+		ALERT = "本月已耗电量" + String.valueOf(powercost) + "度";
+		MSG_CONTENT = "本月已耗电量" + String.valueOf(powercost) + "度";
 		JPushClient jpushClient = new JPushClient(masterSecret, appKey, 3);
         
         // For push, all you need do is to build PushPayload object.
-        PushPayload payload = buildPushObject_all_all_alert();
-        
+        PushPayload payloadAlert = buildPushObject_all_all_alert();
+        PushPayload payload = buildPushObject_all_all_alert_title_msg();
         try {
+        	jpushClient.sendPush(payloadAlert);
             PushResult result = jpushClient.sendPush(payload);
             LOG.info("Got result - " + result);
             

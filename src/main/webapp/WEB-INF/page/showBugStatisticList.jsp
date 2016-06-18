@@ -1,10 +1,11 @@
-<%@ page import="com.gpserver.GPServer.entity.DeviceInfo"%>
+<%@ page import="com.gpserver.GPServer.entity.BugStatistic"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>Typography</title>
+<title>Basic_tables</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -102,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png" alt=""/><span class="badge">9</span></a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header text-center">
-							<strong>Account</strong>
+							<strong>${user }</strong>
 						</li>
 						<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
 						<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
@@ -206,35 +207,248 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
-        <div class="graphs">
-  <div class="grid_3 grid_4">
-  <h3>警报推送模拟</h3>
-  <div class="bs-example"> 
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	 <h3>故障记录</h3>
+  	<div class="bs-example4" data-example-id="contextual-table">
     <table class="table">
-      <tbody>
-          <td>设备id</td>
-          <td>设备名称</td>
-          <td>设备状态</td>
-          <td>操作</td>
-      	<%List deviceInfoList = (List)request.getAttribute("deviceInfoList"); %>
-		   	 <% for(int i = 0; i < deviceInfoList.size(); i++) { 
-		   	 		DeviceInfo deviceInfo = (DeviceInfo)deviceInfoList.get(i);
-		   	 %>
+      <thead>
         <tr>
-          <td><h3 id="h3"><%=deviceInfo.getDeviceId() %><a class="anchorjs-link" href="#h1.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h1></td>
-          <td class="type-info"><h3 id="h3"><%=deviceInfo.getDeviceName() %></h1></td>
-          <td class="type-info"><h3 id="h3"><%if(deviceInfo.getDeviceStatus() == 1) {%>正常<%} else { %>异常<%} %></h1></td>
-          <td><a href="sendMessage/<%=deviceInfo.getDeviceId() %>.html"><button type="button" class="btn btn_5 btn-lg btn-primary" >变更</button></a></td>
+          <th>#</th>
+          <th>设备id</th>
+          <th>故障类型</th>
+          <th>故障时间</th>
+        </tr>
+      </thead>
+      <tbody>
+      <!--  tr class = active、success、info、warning、danger   -->
+      <%List bugStatisticList = (List)request.getAttribute("bugStatisticList"); %>
+		   	 <% for(int i = 0; i < bugStatisticList.size(); i++) { 
+		   	 		BugStatistic bugStatistic = (BugStatistic) bugStatisticList.get(i);
+		   	 %>
+        <tr class="active">
+          <th scope="row"><%=i+1 %></th>
+          <td><%=bugStatistic.getDeviceId() %></td>
+          <% switch(Integer.parseInt(bugStatistic.getBugType())) {
+          			case 1:%><td>自然故障</td><%break;
+          			case 2:%><td>模拟故障</td><%break;
+          			}%>
+      
+          <td><%=bugStatistic.getBugtime() %></td>
         </tr>
         <%} %>
       </tbody>
     </table>
+   </div>
+   <!--  
+   <div class="panel-body1">
+   <table class="table">
+     <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
+    -->
+    <!--  
+    <div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
+				<div class="panel-body no-padding">
+					<table class="table table-striped">
+						<thead>
+							<tr class="warning">
+								<th>#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Username</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>@mdo</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>@fat</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	</div>
+	<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
+				<div class="panel-heading">
+					<h2>Warning Table</h2>
+					<div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+				</div>
+				<div class="panel-body no-padding" style="display: block;">
+					<table class="table table-striped">
+						<thead>
+							<tr class="warning">
+								<th>#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Username</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>@mdo</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>@fat</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	<div class="bs-example4" data-example-id="simple-responsive-table">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    -->
+    <!-- /.table-responsive -->
+    <!--  
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    --><!-- /.table-responsive -->
+    <!--  
   </div>
-         <div class="copy_layout">
-         <p>Copyright &copy; 2016.Bean.Cb All rights reserved.</p>
-        </div>	
-        </div>
+  </div>
+  -->
+  <div class="copy_layout">
+      <p>Copyright &copy; 2016.BeanCb All rights reserved.</p>
+  </div>
+   </div>
       </div>
       <!-- /#page-wrapper -->
    </div>

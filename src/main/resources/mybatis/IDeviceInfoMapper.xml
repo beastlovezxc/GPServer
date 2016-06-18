@@ -25,4 +25,7 @@
 		INSERT INTO deviceinfo (deviceid,devicename,type,subtype,devicestatus)
 		VALUES (#{deviceId},#{deviceName},#{type},#{subType},#{deviceStatus});
 	</insert>
+	<update id="resetSetting">
+		UPDATE deviceinfo set devicestatus = 1;
+	</update>
 </mapper>
