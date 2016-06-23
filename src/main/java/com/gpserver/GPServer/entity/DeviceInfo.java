@@ -11,6 +11,7 @@ public class DeviceInfo {
 	private int deviceId;
 	private int type;
 	private int subType;
+	
 	public String getDeviceName() {
 		return deviceName;
 	}

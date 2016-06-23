@@ -23,4 +23,10 @@ public class TempStatusService {
 		dao.updateInroomInfo(tempStatus);
 	}
 
+	public void insertInroomInfo(TempStatus tempStatus) {
+		// TODO Auto-generated method stub
+		dao.insertInroomInfo(tempStatus);
+	}
+
+
 }

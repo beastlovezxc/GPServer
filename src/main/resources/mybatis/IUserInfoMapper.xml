@@ -7,8 +7,8 @@
 	</select>
 	<insert id="userRegister" parameterType="UserInfo" >
 		INSERT INTO userinfo 
-		(username,password,authority)
-		VALUES(#{userName},#{password},#{authority});
+		(username,password,authority,reg_time)
+		VALUES(#{userName},#{password},#{authority},#{reg_time});
 	</insert>
 	<select id="doLogin" parameterType="string" resultType="UserInfo" >
 		select * from userinfo where username=#{userName}

@@ -8,6 +8,7 @@ public class StatusLog {
 	private int deviceId;
 	private int beforeStatus;
 	private int changeStatus;
+	private int logId;
 	public Timestamp getChangeDate() {
 		return changeDate;
 	}
@@ -31,6 +32,12 @@ public class StatusLog {
 	}
 	public void setChangeStatus(int changeStatus) {
 		this.changeStatus = changeStatus;
+	}
+	public int getLogId() {
+		return logId;
+	}
+	public void setLogId(int logId) {
+		this.logId = logId;
 	}
 	
 	

@@ -31,6 +31,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Graph JavaScript -->
 <script src="javascript/d3.v3.js"></script>
 <script src="javascript/rickshaw.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		function AutoGeneratingProgram() {
+			$.ajax({
+				url:'autoGeneratingProgram.html',
+				type:'get',
+				data:null,
+				success:function(data) {
+				}
+			});
+			window.location.reload();
+		}
+		setTimeout(AutoGeneratingProgram,10000);
+	}) 
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -268,7 +284,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   	 						StatusLog statusLog = (StatusLog)statusLogList.get(i);
 		   						 %>
                    <div class="activity-row">
-	                 <div class="col-xs-1"><i class="fa fa-thumbs-up text-info icon_13"> </i>  </div>
+	                 <div class="col-xs-1"><%=statusLog.getLogId() %>  </div>
 	                 <div class="col-xs-3 activity-img"><img src='images/5.png' class="img-responsive" alt=""/></div>
 	                 <div class="col-xs-8 activity-desc">
 	                 	<h5><a href="#"><%=statusLog.getDeviceId() %></a> 号家居由<% switch(statusLog.getBeforeStatus()) {

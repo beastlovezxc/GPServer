@@ -4,9 +4,13 @@
 	<cache eviction="FIFO" flushInterval="60000" size="500" readOnly="true"></cache>
 
 	<select id="getAllTemp" resultType="tempStatus">
-		SELECT * FROM indexshow;
+		SELECT * FROM indexshow ORDER BY time DESC LIMIT 1;
 	</select>
 	<update id="updateInroomInfo" parameterType="tempStatus">
-		UPDATE indexshow SET airtemp = ${airTemp}, hearttemp = ${heartTemp}, powercost = ${powercost}, electricpower = ${electricpower} WHERE id = 0;
+		UPDATE indexshow SET airtemp = #{airTemp}, hearttemp = #{heartTemp}, powercost = #{powercost}, electricpower = #{electricpower} WHERE id = 0;
 	</update>
+	<insert id="insertInroomInfo" parameterType="tempStatus">
+		INSERT INTO indexshow (airtemp,hearttemp,powercost,electricpower,time) 
+		VALUES (#{airTemp},#{heartTemp},#{powercost},#{electricpower},#{timestamp});
+	</insert>
 </mapper>

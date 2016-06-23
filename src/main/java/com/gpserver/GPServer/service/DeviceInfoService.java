@@ -14,7 +14,7 @@ public class DeviceInfoService {
 
 	@Resource
 	IDeviceInfoDao dao;
-	public List<DeviceInfo> selectAllDeciceInfo() {
+	public List<DeviceInfo> selectAllDeviceInfo() {
 		// TODO Auto-generated method stub
 		List<DeviceInfo> deviceInfo = dao.selectAllDeviceInfo();
 		return deviceInfo;

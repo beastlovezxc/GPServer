@@ -1,5 +1,7 @@
 package com.gpserver.GPServer.entity;
 
+import java.sql.Timestamp;
+
 public class UserInfo {
 
 	
@@ -10,6 +12,7 @@ public class UserInfo {
 	private String userName;
 	private String password;
 	private int authority = 0;
+	private Timestamp reg_time;
 	public String getUserName() {
 		return userName;
 	}
@@ -27,6 +30,12 @@ public class UserInfo {
 	}
 	public void setAuthority(int authority) {
 		this.authority = authority;
+	}
+	public Timestamp getReg_time() {
+		return reg_time;
+	}
+	public void setReg_time(Timestamp reg_time) {
+		this.reg_time = reg_time;
 	}
 	
 	

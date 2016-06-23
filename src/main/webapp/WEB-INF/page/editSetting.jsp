@@ -213,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
    <h3>室内家居状态重置</h3>
    <div class="bs-example4" data-example-id="contextual-table">
-   		<form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()" action="updateInroomInfo.html" method="post">
+   		<form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()" action="insertInroomInfo.html" method="post">
           <fieldset>
             <div class="form-group">
               <label class="control-label">室内温度</label>

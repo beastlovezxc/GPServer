@@ -1,5 +1,6 @@
 package com.gpserver.GPServer.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -46,6 +47,8 @@ public class UserInfoController {
 			map.addAttribute("regStatus","用户名已经存在！");
 			return "/register";
 		} else {
+			Timestamp d = new Timestamp(System.currentTimeMillis());
+			user.setReg_time(d);
 			service.userRegister(user);
 			map.addAttribute("regStatus", "注册成功！");
 			map.addAttribute("user", user.getUserName());

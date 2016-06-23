@@ -1,5 +1,7 @@
 package com.gpserver.GPServer.controller;
 
+import java.sql.Timestamp;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -20,4 +22,14 @@ public class TempStatusController {
 		
 		return "updateInroomInfoSuccess";
 	}
+	
+	@RequestMapping(value = "insertInroomInfo")
+	public String insertInroomInfo(TempStatus tempStatus) {
+
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		tempStatus.setTimestamp(timestamp);
+		service.insertInroomInfo(tempStatus);
+		return "updateInroomInfoSuccess";
+	}
 }
+

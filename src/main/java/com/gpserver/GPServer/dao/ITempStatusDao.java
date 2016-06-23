@@ -11,4 +11,6 @@ public interface ITempStatusDao {
 
 	void updateInroomInfo(TempStatus tempStatus);
 
+	void insertInroomInfo(TempStatus tempStatus);
+
 }

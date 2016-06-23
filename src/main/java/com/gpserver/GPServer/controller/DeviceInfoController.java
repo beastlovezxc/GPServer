@@ -21,7 +21,7 @@ public class DeviceInfoController {
 	
 	@RequestMapping(value = "showAllDeviceInfo")
 	public String showDeviceInfoList(HttpServletRequest request,ModelMap map) {
-		List<DeviceInfo> deviceInfoList = service.selectAllDeciceInfo();
+		List<DeviceInfo> deviceInfoList = service.selectAllDeviceInfo();
 		map.addAttribute("deviceInfoList", deviceInfoList);
 		request.setAttribute("deviceInfoList", deviceInfoList);
 		return "showAllDeviceInfo";
@@ -35,7 +35,7 @@ public class DeviceInfoController {
 	public String doAddDeviceInfo(DeviceInfo deviceInfo) {
 		deviceInfo.setDeviceStatus(1);
 		service.addDeviceInfo(deviceInfo);
-		return "index";
+		return "addDeviceInfoSuccess";
 	}
 	@RequestMapping(value = "updateDeviceInfo")
 	public String updateDevieInfo() {

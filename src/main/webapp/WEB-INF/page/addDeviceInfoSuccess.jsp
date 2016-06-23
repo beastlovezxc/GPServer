@@ -209,43 +209,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-  	 <h3>变更记录</h3>
+  	 <h3>添加设备</h3>
   	<div class="bs-example4" data-example-id="contextual-table">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>日志编号</th>
-          <th>设备id</th>
-          <th>变更前状态</th>
-          <th>变更后状态</th>
-          <th>变更时间</th>
-        </tr>
-      </thead>
-      <tbody>
-      <!--  tr class = active、success、info、warning、danger   -->
-      <%List statusLogList = (List)request.getAttribute("statusLogList"); %>
-		   	 <% for(int i = 0; i < statusLogList.size(); i++) { 
-		   	 		StatusLog statusLog = (StatusLog)statusLogList.get(i);
-		   	 %>
-        <tr class="active">
-          <th scope="row"><%=statusLog.getLogId() %></th>
-          <td><%=statusLog.getDeviceId() %></td>
-          <% switch(statusLog.getBeforeStatus()) {
-          			case 0:%><td>异常</td><%break;
-          			case 1:%><td>正常</td><%break;
-          			}%>
-      
-       <!--     <td><%=statusLog.getBeforeStatus() %></td> -->
-       <% switch(statusLog.getChangeStatus()) {
-          			case 0:%><td>异常</td><%break;
-          			case 1:%><td>正常</td><%break;
-          			}%>
-        <!--   <td><%=statusLog.getChangeStatus() %></td> -->
-          <td><%=statusLog.getChangeDate() %></td>
-        </tr>
-        <%} %>
-      </tbody>
-    </table>
+    <h1>添加成功！</h1>
+    <a href="index.html"><button type="button" class="btn btn_5 btn-lg btn-primary">返回主页</button></a>
    </div>
    <!--  
    <div class="panel-body1">

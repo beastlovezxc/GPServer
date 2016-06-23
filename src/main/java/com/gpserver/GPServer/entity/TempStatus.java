@@ -1,11 +1,14 @@
 package com.gpserver.GPServer.entity;
 
+import java.sql.Timestamp;
+
 public class TempStatus {
 
 	private float airTemp;
 	private float heartTemp;
 	private float powercost;
 	private float electricpower;
+	private Timestamp timestamp;
 	
 	public float getAirTemp() {
 		return airTemp;
@@ -30,6 +33,12 @@ public class TempStatus {
 	}
 	public void setElectricpower(float electricpower) {
 		this.electricpower = electricpower;
+	}
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
 	}
 	
 	

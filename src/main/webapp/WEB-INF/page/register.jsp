@@ -26,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <a href="index.html"><img src="images/logo.png" alt=""/></a>
   </div>
   <h2 class="form-heading">Register</h2>
-  <form class="form-signin app-cam" action="register.html" action="post">
+  <form class="form-signin app-cam" action="register.html" method="post">
       <p>请输入如下信息</p>
       <input type="text" name="userName" class="form-control1" placeholder="用户名" autofocus="">
       <input type="password" name="password" class="form-control1" placeholder="password" autofocus="">
